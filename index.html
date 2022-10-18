@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Megasale - Inicio</title>
+    <meta name="description" content="El sitio donde vas a conseguir los productos con el mejor precio. Calidad garantizada, Envío Gratis, servicio personalizado y más. ¡Entrá ahora y viví la mejor experiencia en compras!">
+    <!-- CSS y Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Animate -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+      </style>
+  </head>
+
+  <body class="gridPadre">
+    <!-- LOGO -->
+    <header>
+      <img class="logo" src="img/Mega.JPG" alt="megasale" />
+    </header>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navegación</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Marcas
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="html/masCasa.html">+CASA</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="html/trueno.html">TRUENO</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="html/descuentos.html">Descuentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="html/ayuda.html">Ayuda</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CARRUSEL -->
+    <section class="carrusel animate__animated animate__backInDown">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="true"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="html/descuentos.html"><img src="img/banner-pricemania.jpg" class="d-block w-100" alt="descuentos"/></a>
+          </div>
+          <div class="carousel-item">
+            <a href="html/masCasa.html"><img src="img/bMascasa.jpg" class="d-block w-100" alt="megasale" /></a>
+          </div>
+          <div class="carousel-item">
+            <a href="html/trueno.html"><img src="img/bTrueno.jpg" class="d-block w-100" alt="megasale" /></a>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <main>
+      <h1>Productos</h1>
+      <div class="row row-cols-1 row-cols-md-4 g-4 marginBot">
+        <div class="col">
+          <!-- Primer producto -->
+          <div class="card a2">
+            <img
+              src="img/5094.jpg"
+              class="card-img-top"
+              alt="Monopatin Urbano"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Monopatín Urbano</h4>
+              <h5>$16.999</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p1"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p1"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/5094.jpg"
+                        class="card-img-top"
+                        alt="Monopatin Urbano"
+                      />
+                      <h4 class="card-title">Monopatín Urbano</h4>
+                      <h5>$16.999</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Segundo Producto -->
+          <div class="card a3">
+            <img
+              src="img/13006.jpg"
+              class="card-img-top"
+              alt="Comedero Doble"
+            />
+            <div class="card-body fPadre">
+              <h4 class="card-title titulo">Comedero doble</h4>
+              <h5>$1.899</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton fHijo">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton fHijo"
+                data-bs-toggle="modal"
+                data-bs-target="#p2"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p2"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/13006.jpg"
+                        class="card-img-top"
+                        alt="Comedero Doble"
+                      />
+                      <h4 class="card-title titulo">Comedero doble</h4>
+                      <h5>$1.899</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Tercer Producto -->
+          <div class="card a4">
+            <img
+              src="img/5023.jpg"
+              class="card-img-top"
+              alt="Skate Profesional"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Skate Profesional</h4>
+              <h5>$5.999</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/5023.jpg"
+                        class="card-img-top"
+                        alt="Skate Profesional"
+                      />
+                      <h4 class="card-title">Skate Profesional</h4>
+              <h5>$5.999</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Cuarto Producto -->
+          <div class="card a5">
+            <img
+              src="img/18000.jpg"
+              class="card-img-top"
+              alt="Pava Eléctrica"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Pava Eléctrica +CASA</h4>
+              <h5>$3.999</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p3"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p3"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/18000.jpg"
+                        class="card-img-top"
+                        alt="Pava Eléctrica"
+                      />
+                      <h4 class="card-title">Pava Eléctrica +CASA</h4>
+              <h5>$3.999</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <!-- Quinto producto -->
+          <div class="card a2">
+            <img
+              src="img/14015.jpg"
+              class="card-img-top"
+              alt="Microfono Parlante"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Microfono Parlante</h4>
+              <h5>$2.299</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p5"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p5"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/14015.jpg"
+                        class="card-img-top"
+                        alt="Microfono Parlante"
+                      />
+                      <h4 class="card-title">Microfono Parlante</h4>
+              <h5>$2.299</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Sexto Producto -->
+          <div class="card a3">
+            <img
+              src="img/0631.jpg"
+              class="card-img-top"
+              alt="Juego de Cacerolas"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Set de Cacerolas x4</h4>
+              <h5>$13.999</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p6"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p6"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/0631.jpg"
+                        class="card-img-top"
+                        alt="Juego de Cacerolas"
+                      />
+                      <h4 class="card-title">Set de Cacerolas x4</h4>
+              <h5>$13.999</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Séptimo Producto -->
+          <div class="card a4">
+            <img src="img/10076.jpg" class="card-img-top" alt="Nivel Medidor" />
+            <div class="card-body">
+              <h4 class="card-title">Nivel Medidor TRUENO</h4>
+              <h5>$799</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p7"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p7"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/10076.jpg"
+                        class="card-img-top"
+                        alt="Nivel Medidor"
+                      />
+                      <h4 class="card-title">Nivel Medidor TRUENO</h4>
+              <h5>$799</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Octavo Producto -->
+          <div class="card a5">
+            <img src="img/0615.jpg" class="card-img-top" alt="Sacacorchos" />
+            <div class="card-body">
+              <h4 class="card-title">Saca corchos eléctrico</h4>
+              <h5>$6.199</h5>
+              <!-- --Botón para comprar -->
+              <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+              <!-- Boton para agregar al carrito -->
+              <button
+                type="button"
+                class="btn btn-primary fondoBoton"
+                data-bs-toggle="modal"
+                data-bs-target="#p8"
+              >
+                Agregar al carrito
+              </button>
+
+              <!-- despliegue del cuadro flotante -->
+              <div
+                class="modal fade"
+                id="p8"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Agregar al carrito
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close fondoBoton"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <img
+                        src="img/0615.jpg"
+                        class="card-img-top"
+                        alt="Sacacorchos"
+                      />
+                      <h4 class="card-title">Saca corchos eléctrico</h4>
+              <h5>$6.199</h5>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary fondoBoton"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button type="button" class="btn btn-primary fondoBoton">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- PUBLICIDAD DE MARCAS -->
+
+    <section class="marcas">
+      <h2>Marcas</h2>
+      <div class="container text-center">
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="html/masCasa.html" class="a5"><img src="img/+CAsaLogo.JPG" alt="+Casa" class="centroHorizontal2"></a>
+          </div>
+          <div class="col">
+            <a href="html/trueno.html" class="a5"><img src="img/Trueno logo.JPG" alt="trueno" class="centroHorizontal3"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <hr />
+      <p>2022 MegasaleArgentina.</p>
+      <p>Av. No Inventada 555, Esto Existe, Buenos Aires, Argentina.</p>
+      <p>Tel: 11 5555 5555.</p>
+      <p>Desarrollado por Guido Leopardi.-</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Animate.style -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
