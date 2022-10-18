@@ -55,18 +55,18 @@ console.log(articulos)
 
 //funciones 
 function item(sku, articulo, precio){
-  this.sku = prompt("Inserta el SKU: ", sku),
-  this.articulo = prompt("Inserta el nombre: ", articulo),
-  this.precio = parseFloat(prompt("Introduce el precio: ", precio)); 
+  this.sku = prompt("Inserta el código SKU: ", sku),
+  this.articulo = prompt("Inserta el nombre del producto: ", articulo),
+  this.precio = parseFloat(prompt("Introduce el precio del producto: ", precio)); 
 }
 
-let cargar
-let fecha
-let contador = 0
+let cargar //Para repetir el ciclo y se puedan cargar múltiples productos
+let fecha //Para indicar la fecha en la que se realizó la carga de productos
+let contador = 0 //Para indicar cuantos productos cargó el usuario al momento de finalizar el proceso
 
 do {
   articulos.push(new item())
-  cargar = prompt("Va a cargar otro artículo?: ")
+  cargar = prompt("¿Va a cargar otro artículo? (indice 'no' si ya cargó todos los productos): ")
   contador += 1
 } while (cargar != "no")
 
@@ -74,7 +74,7 @@ articulos.sort((a,b)  => a.precio - b.precio)
 
 fecha = new Date()
 console.table(articulos)
-console.log("Usted ha cargado a la plaforma "+contador+" articulo/s "+fecha+" muchas gracias.")
+console.log("Usted ha cargado a la plaforma "+contador+" articulo/s en el día "+fecha+" muchas gracias.")
 
 
 
