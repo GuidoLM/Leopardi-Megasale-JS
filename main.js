@@ -18,6 +18,7 @@ let contrasenya = prompt("Ingrese tu contraseña (respeta las mayúsculas)");
 
 //Lista de productos, tengo unos "precargados"
 
+const carrito = []
 const articulos = [
   {
     sku:"5094",
@@ -51,15 +52,21 @@ const articulos = [
   }
 ]
 
-console.log(articulos)
-
+//console.log(articulos)
+/*
 //funciones 
 function item(sku, articulo, precio){
   this.sku = prompt("Inserta el código SKU: ", sku),
   this.articulo = prompt("Inserta el nombre del producto: ", articulo),
   this.precio = parseFloat(prompt("Introduce el precio del producto: ", precio)); 
 }
-
+*/
+function carroDeCompras(){
+  alert("Se ha agregado el producto al carrito de compras");
+  carrito.push(articulo);
+  console.table(carrito)
+}
+/*
 let cargar //Para repetir el ciclo y se puedan cargar múltiples productos
 let fecha //Para indicar la fecha en la que se realizó la carga de productos
 let contador = 0 //Para indicar cuantos productos cargó el usuario al momento de finalizar el proceso
@@ -75,7 +82,93 @@ articulos.sort((a,b)  => a.precio - b.precio)
 fecha = new Date()
 console.table(articulos)
 console.log("Usted ha cargado a la plaforma "+contador+" articulo/s en el día "+fecha+" muchas gracias.")
+*/
+//
 
+let publicaciones = document.getElementById("publicaciones")
+
+//let etiquetaTablaBody = document.createElement("tbody")
+
+for(const articulo of articulos){
+  let etiquetaTabla = document.createElement("div")
+  etiquetaTabla.className="card col-md-3"
+  etiquetaTabla.innerHTML += `
+  <div class="card a2">
+  <img
+    src="${articulo.img}"
+    class="card-img-top"
+    alt="${articulo.articulo}"
+  />
+  <div class="card-body">
+    <h4 class="card-title">${articulo.articulo}</h4>
+    <h5>$ ${articulo.precio}</h5>
+
+    <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+
+    <button
+      type="button"
+      class="btn btn-primary fondoBoton"
+      data-bs-toggle="modal"
+      data-bs-target="#p1"
+    >
+      Agregar al carrito
+    </button>
+
+    <!-- despliegue del cuadro flotante -->
+    <div
+      class="modal fade"
+      id="p1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Agregar al carrito
+            </h5>
+            <button
+              type="button"
+              class="btn-close fondoBoton"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="${articulo.img}"
+              class="card-img-top"
+              alt="${articulo.articulo}"
+            />
+            <h4 class="card-title">${articulo.articulo}</h4>
+            <h5>$ ${articulo.precio}</h5>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary fondoBoton"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button id="cc" type="button" class="btn btn-primary fondoBoton">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+  publicaciones.append(etiquetaTabla)
+}
+
+let carritoDeCompras = document.getElementById("cc")
+carritoDeCompras.onclick = () => {
+  carroDeCompras();
+}
 
 
 
