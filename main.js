@@ -39,7 +39,14 @@ const articulos = [
   }
 ]
 
+
 //funciones 
+//Función para identificarse
+
+function identificacion(){
+  localStorage.setItem("usuario", prompt("Hola, bienvenido, ¿puede indicarnos su nombre?"))
+}
+
 // Función para crear productos
 function item(sku, articulo, precio){
   this.sku = prompt("Inserta el código SKU: ", sku),
@@ -133,9 +140,17 @@ function mostrador(){
 
 //Función para agregar al carro de compras
 function agregarAlCarrito(articuloAgregadoAlCarro){
+  if (localStorage.getItem("usuario") === "null" | localStorage.getItem("usuario") === ""){
+    localStorage.setItem("usuario", prompt("Hola, bienvenido, ¿puede indicarnos su nombre?"))
+  }else{
   carrito.push(articuloAgregadoAlCarro)
   console.table(carrito)
-  alert("Se agrego el "+articuloAgregadoAlCarro.articulo+ " al carro de compras")
+  alert("Se agrego el "+articuloAgregadoAlCarro.articulo+ " al carro de compras, muchas gracias "+localStorage.getItem("usuario"))
+  }
 }
 
 mostrador();
+
+identificarse.onclick = () => {
+  identificacion()
+}
