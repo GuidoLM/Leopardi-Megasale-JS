@@ -34,7 +34,7 @@
     <!-- MENÚ DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <button class="navbar-brand" id="identificarse">Identificarte</button>
+        <a class="navbar-brand" id="identificarse">Identificarte</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,8 +49,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Inicio</a
+              <a id="productos" class="nav-link active" aria-current="page">Inicio</a
               >
             </li>
             <li class="nav-item dropdown">
@@ -74,7 +73,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="html/descuentos.html">Descuentos</a>
+              <a class="nav-link" id="carroDeCompras">Carrito</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="html/ayuda.html">Ayuda</a>
@@ -158,13 +157,10 @@
 
     <!-- PRODUCTOS -->
     <main>
-      <h1>Productos</h1>
+      <h1 id="titulo">Productos</h1>
       <div id="publi" class="row">
-
+        <!-- En esta sección se agregan los productos publicados-->
       </div>
-
-
-
     </main>
 
     <!-- PUBLICIDAD DE MARCAS -->
@@ -206,6 +202,7 @@
     <script>
       AOS.init();
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="productos.js"></script>
     <script src="main.js"></script>
   </body>
