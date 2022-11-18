@@ -158,3 +158,29 @@ comprar()
 }
 */
 
+// Función para crear productos
+function item(sku, articulo, precio){
+  this.sku = prompt("Inserta el código SKU: ", sku),
+  this.articulo = prompt("Inserta el nombre del producto: ", articulo),
+  this.precio = parseFloat(prompt("Introduce el precio del producto: ", precio)); 
+  
+}
+
+function enviarDatos(){
+  const publicar="/articulos.json";
+  const publicarProducto={
+      sku:prompt("Inserta el código SKU: "),
+      articulo:prompt("Inserta el nombre del producto: "),
+      precio:parseFloat(prompt("Introduce el precio del producto: ")),
+      img:prompt("Inserta el nombre del producto: "),
+  }
+  fetch(publicar,{
+      method:"POST",
+      body:JSON.stringify(publicarProducto),
+  })
+      .then(respuesta => respuesta.json())
+      .then(datosRetorno => {
+          console.log("Lo que retorna json placeholder al post");
+          console.log(datosRetorno);
+      })
+}

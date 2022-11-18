@@ -1,52 +1,30 @@
-const carrito = []
+//Declaro los array primeramente que voy a utilizar
+let carrito = []
+let articulos = []
 
-const articulos = [
-  {
-    sku:5094,
-    articulo: "Monopatín Urbano",
-    precio: 16999,
-    img: "img/5094.jpg"
-  },
-  {
-    sku:13006,
-    articulo: "Comedero doble",
-    precio: 1899,
-    img: "img/13006.jpg"
-  },
-  {
-    sku:5023,
-    articulo: "Skate Profesional",
-    precio: 5999,
-    img: "img/5023.jpg"
-  },
-  {
-    sku:18000,
-    articulo: "Pava Eléctrica +CASAOPATIN",
-    precio: 3999,
-    img: "img/18000.jpg"
-  },
-  {
-    sku:0631,
-    articulo: "Set de Cacerolas x4",
-    precio: 13999,
-    img: "img/0631.jpg"
-  },
-  {
-    sku:14015,
-    articulo: "Microfono Parlante",
-    precio: 2299,
-    img: "img/14015.jpg"
-  }
-]
+//Acá declaro algunas variables y constantes para armar la interfaz de la página en base a la navegación del usuario. Si está en la página de productos o si está en la página de identificación o en el carrito, de esta forma siempre manejo un html pero con distintas interfaces 
+let titulo = document.getElementById("titulo")
+let ancla = document.getElementById("publi")
+let publicaciones = document.getElementById("publi");
+const paginaInicio = document.getElementById("productos")
+const carroDeCompras = document.getElementById("carroDeCompras")
 
+//Funciones
 
-//funciones 
-//Función para identificarse
+//Función para obtener datos del "servidor", con esta saco los productos del JSON para insertarlo en el carrito y que se impriman en pantalla
+function obtenerArticulos(){
+  const obtener="/articulos.json";
+  fetch(obtener)
+      .then(resultado => resultado.json())
+      .then(data => {
+          articulos=data.articulos;
+          mostrador();
+      });
+}
 
+//Función para identificarse, con esta tomo el nombre y apellido del usuario y lo concateno en el localStorage para poder personalizar los mensajes de la web. Esta función dibuja la información para tomar datos sin cambiar de html
 function identificacion(){
-  let titulo = document.getElementById("titulo")
-  let ancla = document.getElementById("publi")
-  titulo.innerHTML = `<h1 id="titulo">Identificate</h1>`
+  titulo.innerHTML = `<h1 id="titulo">Identificate</h1>`;
   ancla.innerHTML = `
   <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Nombre</label>
@@ -60,14 +38,15 @@ function identificacion(){
 <button type="submit" class="btn btn-primary" id="botonIdentificacion">Identificarse</button>
 </div>
 `;
-let nombre = document.getElementById("formGroupExampleInput")
-let apellido = document.getElementById("formGroupExampleInput2")
-let botonIdentificacion = document.getElementById("botonIdentificacion")
+let nombre = document.getElementById("formGroupExampleInput");
+let apellido = document.getElementById("formGroupExampleInput2");
+let botonIdentificacion = document.getElementById("botonIdentificacion");
+
 
 botonIdentificacion.onclick= () => {
   if (nombre.value === "null" | apellido.value === "null" | nombre.value === " " | apellido.value === " " | nombre.value === "" | apellido.value === ""){
     Swal.fire({
-      position: 'center-center',
+      position: 'center',
       icon: 'error',
       title: "Introdujo un nombre y/o apellidos inválidos, por favor asegurese de llenar los datos como se le requiere",
       showConfirmButton: false,
@@ -78,38 +57,25 @@ botonIdentificacion.onclick= () => {
   nombre.value = ""
   apellido.value = ""
   Swal.fire({
-    position: 'center-center',
+    position: 'center',
     icon: 'success',
     title: "Hola "+localStorage.getItem("usuario")+ " Te rediriremos a la página principal.",
     showConfirmButton: false,
-    timer: 1500
+    timer: 3000
   })
+  publicaciones.innerHTML = ` `
   mostrador()
   }
+} 
 }
 
-// document.getElementById(botonIdentificacion).addEventListener("summit",function(){
-//   localStorage.setItem("usuario", nombre.value)
-// });
- 
-}
-
-// Función para crear productos
-function item(sku, articulo, precio){
-  this.sku = prompt("Inserta el código SKU: ", sku),
-  this.articulo = prompt("Inserta el nombre del producto: ", articulo),
-  this.precio = parseFloat(prompt("Introduce el precio del producto: ", precio)); 
-}
-
-//Función para mostrar los productos
-let publicaciones = document.getElementById("publi");
+//Función para mostrar los productos, esta función toma los productos del array de artículos y los dibuja en pantalla
 function mostrador(){
+  titulo.innerHTML = `<h1 id="titulo">Productos</h1>`
   for(const producto of articulos){
-    let titulo = document.getElementById("titulo")
     let publicados = document.createElement("div");
-    titulo.innerHTML = `<h1 id="titulo">Productos</h1>`
-    publicados.className="col-md-3";
-    publicados.innerHTML = `
+    publicados.className="col-md-3 row";
+    publicados.innerHTML += `
     <div class="card a2">
                <img
                  src="${producto.img}"
@@ -120,7 +86,7 @@ function mostrador(){
                    <h4 class="card-title">${producto.articulo}</h4>
                    <h5>$ ${producto.precio}</h5>
           
-                   <a href="#" class="btn btn-primary fondoBoton">Comprar</a>
+                   <a id='comprar${producto.sku}' class="btn btn-primary fondoBoton">Comprar</a>
           
                    <button
                      type="button"
@@ -183,11 +149,26 @@ function mostrador(){
     document.getElementById(`AC${producto.sku}`).addEventListener("click",function(){
     agregarAlCarrito(producto);
     });
-  
+    document.getElementById(`comprar${producto.sku}`).addEventListener("click",function(){
+      if (localStorage.getItem("usuario") === "null" | localStorage.getItem("usuario") === ""){
+        identificacion()
+      }else{
+      carrito.push(producto);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: "Perfecto "+localStorage.getItem("usuario")+ " Confirma tu compra dándole al botón de comprar",
+        showConfirmButton: false,
+        timer: 3000
+      })
+      publicaciones.innerHTML = ` `
+      mostradorDeCarrito();
+      console.table(carrito);
+    }});
   };
 }
 
-//Función para agregar al carro de compras
+//Función para agregar al carro de compras, esta función detecta los click en "agregar al carrito" del usuario y agrega el artículo al array del carrito
 function agregarAlCarrito(articuloAgregadoAlCarro){
   if (localStorage.getItem("usuario") === "null" | localStorage.getItem("usuario") === ""){
     identificacion()
@@ -195,29 +176,94 @@ function agregarAlCarrito(articuloAgregadoAlCarro){
   carrito.push(articuloAgregadoAlCarro)
   console.table(carrito)
   Swal.fire({
-    position: 'center-center',
+    position: 'center',
     icon: 'success',
     title: "Se agrego el "+articuloAgregadoAlCarro.articulo+ " al carro de compras, muchas gracias "+localStorage.getItem("usuario"),
     showConfirmButton: false,
     timer: 1500
   })
+
   }
 }
 
-//Estado inicial de la web
-mostrador();
+//Función para mostrar los productos en el carrito
 
+function mostradorDeCarrito(){
+  titulo.innerHTML = `<h1 id="titulo">Carro de Compras</h1>`
+  let productosEnElCarro = document.createElement("div")
+    for(const producto of carrito){
+        productosEnElCarro.className="container text-center card";
+        productosEnElCarro.innerHTML += `
+        <div class="row">
+        <div class="col">
+        <img width=50% src="${producto.img}" alt="${producto.articulo}">
+        </div>
+        <div class="col">
+        ${producto.articulo}
+        </div>
+        <div class="col">
+        ${producto.precio}
+        </div>
+        <div class="col">
+        
+        <button id='borrar${producto.sku}' type="button" class="btn btn-primary fondoBoton">
+        Eliminar producto
+        </button>
+      </div>`;
+      publicaciones.append(productosEnElCarro)
 
-//Enlaces
-const paginaInicio = document.getElementById("productos")
+      document.getElementById(`borrar${producto.sku}`).addEventListener("click",function(){
+      const borrarArticulo = carrito.filter((articulo) => articulo !== `${producto.sku}` | `${producto.img}` | `${producto.articulo}` | `${producto.precio}`)
+      console.table(carrito)
+       });
+      // let botonBorrar= document.getElementById(`borrar${producto.sku}`)
+      // botonBorrar.onclick = () => {
+      //   const borrarArticulo = carrito.filter((articulo) => articulo !== `${producto.sku}`)
+      //   console.table(carrito)
+      // }
+    }
+    let totalCarrito = carrito.reduce((acumulador,producto)=>acumulador+producto.precio,0)
+      let mostradorDeSumatoria = document.createElement("div")
+      mostradorDeSumatoria.className="container text-center card";
+      mostradorDeSumatoria.innerText="El total a pagar es $"+totalCarrito 
+      mostradorDeSumatoria.innerHTML+= `
+      <button id="comprar" type="button" class="btn btn-primary fondoBoton">
+        Comprar
+        </button>
+        <button id="vaciarCarrito" type="button" class="btn btn-primary fondoBoton">
+        Vaciar carrito
+        </button>`
+      publicaciones.append(mostradorDeSumatoria)  
+      document.getElementById("comprar").addEventListener("click", function() {
+        comprar()
+      })
+      document.getElementById(`vaciarCarrito`).addEventListener("click", function() {
+        carrito=[]
+        publicaciones.innerHTML = ` `
+        mostradorDeCarrito()
+        console.table(carrito)
+      })
+}
 
+function comprar (){
+
+}
+//Estado inicial de la web, esta función se ejecuta al abrir la web, solicita los productos al "servidor" y ejecuta la función de mostrador para que aparezcan en la web.
+obtenerArticulos();
+
+//Enlaces, aquí tengo todos los "escuchadores" de la navegación, de esta forma se borra el html y se reescribe en base a la opción que clickee el usuario
 
 identificarse.onclick = () => {
+  publicaciones.innerHTML = ` `
   identificacion()
-
-    }
+}
 
 paginaInicio.onclick = () => {
+  publicaciones.innerHTML = ` `
   mostrador()
+}
 
-    }
+carroDeCompras.onclick = () => {
+  publicaciones.innerHTML = ` `
+  mostradorDeCarrito()
+}
