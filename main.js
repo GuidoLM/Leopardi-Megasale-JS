@@ -174,7 +174,6 @@ function agregarAlCarrito(articuloAgregadoAlCarro){
     identificacion()
   }else{
   carrito.push(articuloAgregadoAlCarro)
-  console.table(carrito)
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -205,22 +204,8 @@ function mostradorDeCarrito(){
         ${producto.precio}
         </div>
         <div class="col">
-        
-        <button id='borrar${producto.sku}' type="button" class="btn btn-primary fondoBoton">
-        Eliminar producto
-        </button>
       </div>`;
       publicaciones.append(productosEnElCarro)
-
-      document.getElementById(`borrar${producto.sku}`).addEventListener("click",function(){
-      const borrarArticulo = carrito.filter((articulo) => articulo !== `${producto.sku}` | `${producto.img}` | `${producto.articulo}` | `${producto.precio}`)
-      console.table(carrito)
-       });
-      // let botonBorrar= document.getElementById(`borrar${producto.sku}`)
-      // botonBorrar.onclick = () => {
-      //   const borrarArticulo = carrito.filter((articulo) => articulo !== `${producto.sku}`)
-      //   console.table(carrito)
-      // }
     }
     let totalCarrito = carrito.reduce((acumulador,producto)=>acumulador+producto.precio,0)
       let mostradorDeSumatoria = document.createElement("div")
@@ -241,12 +226,27 @@ function mostradorDeCarrito(){
         carrito=[]
         publicaciones.innerHTML = ` `
         mostradorDeCarrito()
-        console.table(carrito)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: "Hemos vaciado su carrito de compra",
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
 }
 
 function comprar (){
-
+  carrito=[]
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: "Se realizado la compra exitosamente, muchas gracias "+localStorage.getItem("usuario"),
+    showConfirmButton: false,
+    timer: 3000
+  })
+  publicaciones.innerHTML = ` `
+  mostrador()
 }
 //Estado inicial de la web, esta función se ejecuta al abrir la web, solicita los productos al "servidor" y ejecuta la función de mostrador para que aparezcan en la web.
 obtenerArticulos();
