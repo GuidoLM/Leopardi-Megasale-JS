@@ -59,7 +59,7 @@ botonIdentificacion.onclick= () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    title: "Hola "+localStorage.getItem("usuario")+ " Te rediriremos a la página principal.",
+    title: "Hola "+localStorage.getItem("usuario")+ " Te redirijiremos a la página principal.",
     showConfirmButton: false,
     timer: 3000
   })
